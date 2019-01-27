@@ -2,9 +2,11 @@ var { google } = require("googleapis");
 var { URL } = require("url");
 
 var authorize = async function(request, response) {
-  var app = request.app;
+    var app = request.app;
 
-  var { getClient, scopes } = app.get("google").auth;
+    console.log("authorize.request.sessionID", request.sessionID, app.request.sessionID);
+
+    var { getClient, scopes } = app.get("google").auth(request);
 
 
   var host = request.hostname;
@@ -27,7 +29,7 @@ var authorize = async function(request, response) {
 var authenticate = async function(request, response) {
   var app = request.app;
   var server = app.get("server");
-  var { getClient, updateTokenFile } = app.get("google").auth;
+    var { getClient, updateTokenFile } = app.get("google").auth(request);
 
   var client = await getClient();
 

@@ -7,7 +7,7 @@ module.exports = async function(request, response) {
   var { slug } = request.body;
 
   try {
-    var duplicate = await duplicateGraphic(config, original, slug);
+      var duplicate = await duplicateGraphic(config, original, slug, request);
     response.status(302);
     response.set("Location", `/graphic/${duplicate}/`);
     response.send();

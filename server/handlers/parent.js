@@ -4,7 +4,7 @@ var readJSON = require("../../lib/readJSON");
 module.exports = async function(request, response) {
   var { app, user } = request;
   var config = app.get("config");
-  var { getSheet } = app.get("google").sheets;
+    var { getSheet } = app.get("google").sheets(request);
 
   var { slug } = request.params;
   var manifestPath = path.join(config.root, slug, "manifest.json");

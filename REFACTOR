@@ -1,0 +1,10 @@
+REFACTOR PLAN
+
+    Refactor dailygraphics-next for use in a hosted environment.
+
+    To do this, we must:
+
+       1. Convert lib modules to closures that accept an app variable.
+       2. Modify all calls to those libraries to pass the app variable.
+       
+   

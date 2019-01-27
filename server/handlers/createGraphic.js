@@ -14,7 +14,7 @@ module.exports = async function(request, response) {
 
   var sheet = createSheet ? null : sheetID;
 
-  var fullSlug = await create(config, template, slug, sheet);
+    var fullSlug = await create(config, template, slug, sheet, request);
 
   response.status(302);
   response.set({

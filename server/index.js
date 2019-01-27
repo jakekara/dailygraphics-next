@@ -1,10 +1,21 @@
 var bodyparser = require("body-parser");
+var session = require('express-session');
 var express = require("express");
 var fs = require("fs").promises;
 var minimist = require("minimist");
 var path = require("path");
 
 var app = express();
+
+    app.use(session({
+	secret: 'keyboard cat',	// change this
+	resave: false,
+	saveUninitialized: true,
+	// cookie: { secure: true }
+	cookie: {}
+    }));
+
+
 
 var argv = minimist(process.argv);
 
@@ -33,6 +44,7 @@ module.exports = async function(config) {
     var initService = require(`./services/${s}`);
     initService(app);
   });
+
 
   app.use(express.static("server/static"));
   app.use(bodyparser.json());

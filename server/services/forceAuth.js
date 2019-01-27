@@ -1,11 +1,18 @@
-var { testConnection } = require("../../lib/sheetOps");
+// var { testConnection } = require("../../lib/sheetOps");
 
 module.exports = function(app) {
 
-  var check = async function(request, response, next) {
+
+    var check = async function(request, response, next) {
+    
+	
     try {
       // this will throw if user isn't logged in
-      var app = request.app;
+	var app = request.app;
+
+	var sheetOpsFactory = require("../../lib/sheetOps"),
+	    { testConnection } = sheetOpsFactory(request);
+	
       var config = app.get("config");
       config.user = request.user = await testConnection();
       next();

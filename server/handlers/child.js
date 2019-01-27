@@ -8,7 +8,7 @@ module.exports = async function(request, response) {
   var app = request.app;
   var config = app.get("config");
 
-  var { getSheet } = app.get("google").sheets;
+    var { getSheet } = app.get("google").sheets(request);
   var consoles = app.get("browserConsole");
 
   var { slug } = request.params;
