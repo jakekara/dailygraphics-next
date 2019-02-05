@@ -1,4 +1,4 @@
-var endpoint = `ws://${location.host}`;
+var endpoint = `wss://${location.host}`;
 
 var reconnecting = false;
 var connect = function() {
