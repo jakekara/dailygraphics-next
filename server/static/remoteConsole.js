@@ -8,6 +8,7 @@ var connect = function() {
   var socket = new WebSocket(endpoint);
   socket.onmessage = function(event) {
     var { method, args} = JSON.parse(event.data);
+    console.log("processing", method, args);
     console[method](...args);
   }
 
