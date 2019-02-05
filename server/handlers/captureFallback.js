@@ -7,6 +7,11 @@ module.exports = async function(request, response) {
   var port = app.get("port");
   var { slug } = request.params;
   var url = `http://localhost:${port}/graphic/${slug}/index.html`;
+
+  var host = request.hostname;
+  //var port = app.get("port");
+  var redirect = `https://${host}/${slug}/index.html`;
+
   var destination = path.join(config.root, slug, "fallback.png");
 
   try {

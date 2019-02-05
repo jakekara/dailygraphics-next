@@ -36,7 +36,13 @@ module.exports = async function(request, response) {
     output = "";
   }
   if (!(config.argv.liveReload === false)) {
-    output += `<script src="http://localhost:${config.argv.liveReload || 35729}/livereload.js"></script>`;
+    //output += `<script src="http://localhost:${config.argv.liveReload || 35729}/livereload.js"></script>`;
+    var host = request.hostname;
+    var port = app.get("port");
+  //var redirect = `https://${host}/${slug}/index.html`;
+
+    output += `<script src="https://${host}:${config.argv.liveReload || 35729}/livereload.js"></script>`;
+
   }
 
   response.send(output);
