@@ -16,6 +16,10 @@ var connect = function() {
     console.info("Server console connected!");
   }
 
+  socket.onerror = function(error){
+    console.log("WebSocket error: " + error)
+  }
+
   socket.onclose = reconnect;
 
   // socket.onerror = reconnect;
