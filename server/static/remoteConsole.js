@@ -3,7 +3,7 @@ var endpoint = `ws://${location.host}`;
 var reconnecting = false;
 var connect = function() {
 
-  console.info("Connecting to server console...", ${location.host});
+  console.info("Connecting to server console...", location.host);
 
   var socket = new WebSocket(endpoint);
   socket.onmessage = function(event) {
