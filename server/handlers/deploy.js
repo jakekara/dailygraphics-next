@@ -8,7 +8,7 @@ module.exports = async function(request, response) {
   var { slug } = request.params;
 
   try {
-    await deploy(config, slug);
+    await deploy(config, slug, app);
     response.send({ success: true });
   } catch (error) {
     response.send({ error });
